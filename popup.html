@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisioExplain</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>VisioExplain</h1>
+      <p>AI-powered visual understanding</p>
+    </div>
+
+    <div class="content">
+      <div class="main-view active" id="mainView">
+        <p>Select how you'd like to analyze the current page:</p>
+        
+        <div class="mode-buttons">
+          <div class="mode-btn active" data-mode="simple">
+            <div class="label">Simple</div>
+          </div>
+          <div class="mode-btn" data-mode="technical">
+            <div class="label">Technical</div>
+          </div>
+          <div class="mode-btn" data-mode="translate">
+            <div class="label">Translate</div>
+          </div>
+          <div class="mode-btn" data-mode="custom">
+            <div class="label">Custom</div>
+          </div>
+        </div>
+        
+        <div class="input-group" id="customPromptGroup" style="display: none;">
+          <label for="customPrompt">Custom Prompt</label>
+          <input type="text" id="customPrompt" placeholder="What would you like to know?">
+        </div>
+        <div id="mainMessage"></div>
+      </div>
+
+      <div class="loading" id="loadingView" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loadingText">Analyzing screenshot...</p>
+      </div>
+
+      <div class="result-view" id="resultView">
+        <div>
+          <span>Powered by:</span>
+          <span class="api-mode-indicator" id="apiModeIndicator"></span>
+        </div>
+        <div class="result-text" id="resultText"></div>
+        <div class="button-group">
+          <button class="btn btn-secondary" id="copyBtn">Copy</button>
+          <button class="btn btn-primary" id="newAnalysisBtn">New Analysis</button>
+        </div>
+      </div>
+
+      <div class="history-view" id="historyView">
+        <div id="historyList"></div>
+        <button class="btn btn-secondary" id="clearHistoryBtn">Clear History</button>
+        <button class="btn btn-primary" id="backFromHistoryBtn">Back</button>
+      </div>
+    </div>
+
+    <div class="nav-footer">
+      <button class="link-btn" id="historyLink">History</button>
+    </div>
+  </div>
+
+  <script type="module" src="api-key-loader.js"></script> 
+  <script type="module" src="config.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
